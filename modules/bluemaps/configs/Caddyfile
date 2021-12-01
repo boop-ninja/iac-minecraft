@@ -1,0 +1,20 @@
+http://:8080 {
+    root * /usr/share/caddy/
+    file_server
+
+    reverse_proxy /live/*  http://minecraft-bluemaps-live
+
+    @JSONgz {
+    path *.json
+    file {
+        try_files {path}.gz
+    }
+    }
+
+    route @JSONgz {
+    rewrite {http.matchers.file.relative}
+    header Content-Type application/json
+    header Content-Encoding gzip
+    }
+
+}
