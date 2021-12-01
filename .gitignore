@@ -1,0 +1,7 @@
+**/base/*.yml
+secrets
+**/server/*.yml
+**/web/*.yml
+kustomization.y*ml
+terraform.tfvars.json 
+.terraform
